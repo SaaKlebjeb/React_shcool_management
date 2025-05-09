@@ -3,16 +3,14 @@
 import { BrowserRouter,Route,Routes} from "react-router-dom"
 import Employeepage from "./component/employee/Employeepage"
 import Studentpage from "./component/student/Studentpage"
-import Navbar from "./navbar/Navbar"
-import RoomB from "./component/classroom/subclassroom/RoomB"
-import RoomA from "./component/classroom/subclassroom/RoomA"
 import Notfound from "./component/notfound/Notfound"
-import ReplaceRoom from "./component/classroom/subclassroom/ReplaceRoom"
-import NewRoom from "./component/classroom/subclassroom/NewRoom"
 import Teacherpage from "./component/teacher/Teacherpage"
 
-// import NewRoom from "./component/classroom/subclassroom/NewRoom"
 import LayoutOne from "./component/layout/LayoutOne"
+import M1_class from "./component/classroom/roomtype/M1_class"
+import A5_class from "./component/classroom/roomtype/A5_class"
+import B2_class from "./component/classroom/roomtype/B2_class"
+import C3_class from "./component/classroom/roomtype/C3_class"
 function App() {
  return (
   <BrowserRouter>
@@ -20,12 +18,11 @@ function App() {
     <Routes>
       <Route path="/" element={<Homepage/>}/>
       <Route path="/classroom" element={<Classroompage/>}>
-        <Route index element={<RoomA/>}/>
-        <Route path="roomA" element={<RoomA/>}/>
-        <Route path="roomB" element={<RoomB/>}/>
-        <Route path="replaceroom" element={<ReplaceRoom/>}/>
-        <Route path="newroom" element={<NewRoom/>} />
-        
+        <Route index element={<M1_class/>}/>
+        <Route path="RoomM1" element={<M1_class/>}/>
+        <Route path="RoomA5" element={<A5_class/>}/>
+        <Route path="RoomC3" element={<C3_class/>}/>
+        <Route path="RoomB2" element={<B2_class/>} />
       </Route>
       <Route path="/employee" element={<Employeepage/>}/>
       <Route path="/student" element={<Studentpage/>}/>

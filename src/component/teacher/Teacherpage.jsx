@@ -22,8 +22,11 @@ const Teacherpage = () => {
       //delete
       const deleteTeacher = async (teacherId) => {
         try {
-          const data = await DeleteTeacher(teacherId);
+         const confirmDelete=window.confirm('Are you sure you want to delete this teacher?')
+         if(confirmDelete){
+          await DeleteTeacher(teacherId);
           fetchTeacher()
+         }
         } catch (err) {
           console.log(err);
         }

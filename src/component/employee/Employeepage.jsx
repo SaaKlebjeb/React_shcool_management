@@ -22,8 +22,11 @@ const Employeepage = () => {
   //delete
   const deleteEmployee = async (employeeId) => {
     try {
-      const data = await DeleteEmployee(employeeId);
+    const comfirmDelete= window.confirm("Are you sure you want to delete this employee?");
+    if(comfirmDelete){
+      await DeleteEmployee(employeeId);
       fetchEmployees()
+    }
     } catch (err) {
       console.log(err);
     }

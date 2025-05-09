@@ -22,8 +22,11 @@ const Studentpage = () => {
     //delete
     const deleteStudent = async (studentId) => {
       try {
-        const data = await DeleteStudent(studentId);
-        fetchStudent()
+        const confirmDelete=window.confirm('Are you sure you want to delete this student?')
+        if(confirmDelete){
+          await DeleteStudent(studentId);
+          fetchStudent()
+        }
       } catch (err) {
         console.log(err);
       }

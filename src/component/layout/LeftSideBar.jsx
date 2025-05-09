@@ -1,5 +1,5 @@
-import {  useNavigate } from "react-router-dom"
-import { useState } from "react"
+import {  useLocation, useNavigate } from "react-router-dom"
+import { useState,useEffect } from "react"
 const menuItem=[
   {
     id:1,
@@ -9,7 +9,7 @@ const menuItem=[
   },
   {
   id:2,
-  icon:'employees.svg',
+  icon:'/employees.svg',
   route:"/employee",
   title:'EMPLOYEE',
 },{
@@ -33,9 +33,24 @@ const menuItem=[
 const LeftSideBar = () => {
   const [activeID,setActiveID]=useState(1)
   const navigate=useNavigate();
+  const location = useLocation();
+  useEffect(()=>{
+    const savedID=localStorage.getItem('activeID')
+    if(savedID){
+      setActiveID(parseInt(savedID))
+    }
+   else{
+     const matchItem=menuItem.find(item=>location.pathname.startsWith(item.route))
+      if(matchItem){
+      setActiveID(matchItem.id)
+      localStorage.setItem('activeID',matchItem.id)
+    }
+   }
+  },[location.pathname])
   const HandleClick=(route,id)=>{
     navigate(route)
     setActiveID(id)
+    localStorage.setItem('activeID',id)
   }
   return (
     <div style={{background:'#1b3351'}} className="min-w-44 text-center h-[533px]overflow-x-scroll ">
