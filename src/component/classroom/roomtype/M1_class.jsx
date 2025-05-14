@@ -9,7 +9,7 @@ const M1_class = () => {
     
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 lg:grid-cols-4 overflow-y-scroll w-full sm:h-[93%] md:h-[95%] py-2 px-2 h-[90%] mt-2 rounded-md">
       {M1.map((stu,index) => (
-        <div className=" card h-[450px] hover:-translate-y-2 transition duration-200 hover:cursor-pointer rounded-lg bg-white shadow-md p-2" key={index}>
+        <div className=" card h-[450px] hover:-translate-y-2 transition duration-200 rounded-lg bg-white shadow-md p-2" key={index}>
           <img src={stu.image} alt={stu.roomtype} className=" h-[50%] object-cover rounded-md" />
           <div className="card-body flex justify-center items-center">
            <div className="w-full h-[100%]">
