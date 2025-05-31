@@ -62,21 +62,21 @@ const Teacherpage = () => {
            {
              Teacher.map((item, index) => (
                <tr key={index} className="border-b hover:bg-gray-300 text-center">
-                 <td className="p-3 border-1 border-black">{item.teacher_id}</td>
+                 <td className="p-3 border-1 border-black">{item.teacherID}</td>
                  <td className="p-3 border-1 border-black">{item.firstname}</td>
                  <td className="p-3 border-1 border-black">{item.lastname}</td>
                  <td className="p-3 border-1 border-black">{item.gender}</td>
                  <td className="p-3 border-1 border-black">{new Date(item.dob).toLocaleDateString()}</td>
-                 <td className="p-3 border-1 border-black">{item.tel}</td>
+                 <td className="p-3 border-1 border-black">{item.telephone}</td>
                  <td className="p-3 border-1 border-black">{item.email}</td>
-                 <td className="p-3 border-1 border-black">{item.base_salary}</td>
+                 <td className="p-3 border-1 border-black">{item.salary}</td>
                  <td className="p-3 border-1 border-black">{item.address}</td>
                  <td className="p-3 border-1 border-black">{item.province}</td>
                  <td className="p-3 border-1 border-black">{item.country}</td>
                  <td className="p-3 border-1 border-black">{new Date(item.created_at).toLocaleString()}</td>
                  <td className="p-3 border-1 border-black">
                  <button
-                      onClick={()=>deleteTeacher(item.teacher_id)}
+                      onClick={()=>deleteTeacher(item.teacherID)}
                       type="button"
                       className="min-w-28 h-11 rounded-lg hover:cursor-pointer active:scale-105 duration-300 hover:bg-red-700 bg-red-600 "
                     >

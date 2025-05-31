@@ -79,7 +79,7 @@ const Employeepage = () => {
                 className="border-b hover:bg-gray-300 text-center"
               >
                 <td className="p-3 border-1 border-black">
-                  {item.employee_id}
+                  {item.employeeID}
                 </td>
                 <td className="p-3 border-1 border-black">{item.firstname}</td>
                 <td className="p-3 border-1 border-black">{item.lastname}</td>
@@ -87,10 +87,10 @@ const Employeepage = () => {
                 <td className="p-3 border-1 border-black">
                   {new Date(item.dob).toLocaleDateString()}
                 </td>
-                <td className="p-3 border-1 border-black">{item.tel}</td>
+                <td className="p-3 border-1 border-black">{item.telephone}</td>
                 <td className="p-3 border-1 border-black">{item.email}</td>
                 <td className="p-3 border-1 border-black">
-                  {item.base_salary}
+                  {item.salary}
                 </td>
                 <td className="p-3 border-1 border-black">{item.address}</td>
                 <td className="p-3 border-1 border-black">{item.province}</td>
@@ -98,7 +98,7 @@ const Employeepage = () => {
                 <td className="p-3 border-1 border-black"> {new Date(item.created_at).toLocaleString()}</td>
                 <td className="p-3 border-1 border-black">
                   <button
-                    onClick={()=>deleteEmployee(item.employee_id)}
+                    onClick={()=>deleteEmployee(item.employeeID)}
                     type="button"
                     className="min-w-28 h-11 rounded-lg hover:cursor-pointer active:scale-105 duration-300 hover:bg-red-700 bg-red-600 "
                   >

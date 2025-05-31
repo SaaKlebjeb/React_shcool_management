@@ -17,8 +17,11 @@ useEffect(() => {
     setStudents(stuData);
     setTeachers(teaData);
   };
-  fetchData();
 }, []);
+useEffect(()=>{
+  fetchData()
+})
+
 
   // Prepare data (e.g., employee count by province)
   const getProvinceStats = (data) =>

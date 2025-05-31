@@ -18,7 +18,7 @@ const Studentpage = () => {
     useEffect(() => {
       fetchStudent();
     }, []);
-    console.log(Student)
+    console.log(' student data:',Student)
     //delete
     const deleteStudent = async (studentId) => {
       try {
@@ -62,12 +62,12 @@ const Studentpage = () => {
          {
            Student.map((item, index) => (
              <tr key={index} className="border-b hover:bg-gray-300 text-center">
-               <td className="p-3 border-1 border-black">{item.student_id}</td>
+               <td className="p-3 border-1 border-black">{item.studentID}</td>
                <td className="p-3 border-1 border-black">{item.firstname}</td>
                <td className="p-3 border-1 border-black">{item.lastname}</td>
                <td className="p-3 border-1 border-black">{item.gender}</td>
                <td className="p-3 border-1 border-black">{new Date(item.dob).toLocaleDateString()}</td>
-               <td className="p-3 border-1 border-black">{item.tel}</td>
+               <td className="p-3 border-1 border-black">{item.telephone}</td>
                <td className="p-3 border-1 border-black">{item.email}</td>
                <td className="p-3 border-1 border-black">{item.address}</td>
                <td className="p-3 border-1 border-black">{item.province}</td>
@@ -75,7 +75,7 @@ const Studentpage = () => {
                <td className="p-3 border-1 border-black">{new Date(item.created_at).toLocaleString()}</td>
                <td className="p-3 border-1 border-black">
                <button
-                    onClick={()=>deleteStudent(item.student_id)}
+                    onClick={()=>deleteStudent(item.studentID)}
                     type="button"
                     className="min-w-28 h-11 rounded-lg hover:cursor-pointer active:scale-105 duration-300 hover:bg-red-700 bg-red-600 "
                   >
