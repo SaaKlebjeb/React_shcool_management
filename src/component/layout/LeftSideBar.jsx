@@ -49,8 +49,8 @@ const LeftSideBar = () => {
   },[location.pathname])
   const HandleClick=(route,id)=>{
     navigate(route)
-    setActiveID(id)
     localStorage.setItem('activeID',id)
+    setActiveID(parseInt(localStorage.getItem('activeID')))
   }
   return (
     <div style={{background:'#1b3351'}} className="min-w-44 text-center h-[533px]overflow-x-scroll ">

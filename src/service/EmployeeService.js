@@ -1,4 +1,4 @@
-const EMP_URL = "http://localhost:8081/api/employee";
+const EMP_URL = "http://localhost:8082/api/employee";
 
 //get employee
 export const GetEmployee=async()=>{

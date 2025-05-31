@@ -12,10 +12,10 @@ const Section = ({ title, total, recent, chartData }) => {
         <h2 className="text-lg text-black font-semibold">Recent {title}</h2>
         <div className="overflow-y-auto max-h-40 ">
           <ul className="list-disc list-inside ">
-            {recent.map((item) => (
+            {recent.map((item,index) => (
               <li
                 className="text-black"
-                key={item.employee_id || item.student_id || item.teacher_id}
+                key={index}
               >
                 {item.firstname} {item.lastname}
               </li>

@@ -1,4 +1,4 @@
-const TECH_URL = "http://localhost:8081/api/teacher";
+const TECH_URL = "http://localhost:8082/api/teacher";
 
 //get Teacher
 export const GetTeacher=async()=>{

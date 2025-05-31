@@ -1,4 +1,4 @@
-const STU_URL = "http://localhost:8081/api/student";
+const STU_URL = "http://localhost:8082/api/student";
 
 //get student
 export const GetStudent=async()=>{
