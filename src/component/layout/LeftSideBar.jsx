@@ -31,8 +31,7 @@ const menuItem=[
 ]
 
 const LeftSideBar = () => {
-  localStorage.setItem('activeID',1)
-  const [activeID,setActiveID]=useState(parseInt(localStorage.getItem('activeID')))
+  const [activeID,setActiveID]=useState(1)
   const navigate=useNavigate();
   const location = useLocation();
   useEffect(()=>{
