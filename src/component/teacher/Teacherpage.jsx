@@ -1,6 +1,7 @@
 import { useState,useEffect } from "react"
 import TeacherModal from "../modal/TeacherModal"
 import { DeleteTeacher, GetTeacher } from "../../service/TeacherService";
+const TECH_URL = `${import.meta.env.VITE_API_URL}/api/teacher`;
 const Teacherpage = () => {
    const [Teacher,setTeacher]=useState([])
       const [editingData, setEditingData] = useState(null);
@@ -8,7 +9,7 @@ const Teacherpage = () => {
       //fetch employee
       const fetchTeacher = async () => {
         try {
-          const data = await GetTeacher();
+          const data = await GetTeacher(TECH_URL);
           setTeacher(data);
         } catch (err) {
           console.log(err);

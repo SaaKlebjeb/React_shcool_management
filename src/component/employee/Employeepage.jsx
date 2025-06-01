@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import EmployeeModal from "../modal/EmployeeModal";
 import { GetEmployee,DeleteEmployee } from "../../service/EmployeeService";
+const EMP_URL = `${import.meta.env.VITE_API_URL}/api/employee`;
 const Employeepage = () => {
   const [Employee, setEmployee] = useState([]);
   const [editingData, setEditingData] = useState(null);
@@ -8,7 +9,7 @@ const Employeepage = () => {
   //fetch employee
   const fetchEmployees = async () => {
     try {
-      const data = await GetEmployee();
+      const data = await GetEmployee(EMP_URL);
       setEmployee(data);
     } catch (err) {
       console.log(err);

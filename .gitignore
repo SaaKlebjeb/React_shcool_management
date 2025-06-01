@@ -25,3 +25,5 @@ dist-ssr
 #ignore file
 package-lock.json
 eslint.config.js
+#.env file
+.env

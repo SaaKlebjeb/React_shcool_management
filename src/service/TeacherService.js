@@ -1,7 +1,6 @@
-const TECH_URL = "http://localhost:8082/api/teacher";
 
 //get Teacher
-export const GetTeacher=async()=>{
+export const GetTeacher=async(TECH_URL)=>{
     const res=await fetch(TECH_URL);
     const data=await res.json();
     return data.teacher_lists;

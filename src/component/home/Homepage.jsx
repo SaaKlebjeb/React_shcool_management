@@ -3,6 +3,9 @@ import { GetEmployee } from "../../service/EmployeeService";
 import { GetStudent } from "../../service/StudentService";
 import { GetTeacher } from "../../service/TeacherService";
 import Section from "../sections/Section";
+const TECH_URL = `${import.meta.env.VITE_API_URL}/api/teacher`;
+const STU_URL = `${import.meta.env.VITE_API_URL}/api/student`;
+const EMP_URL = `${import.meta.env.VITE_API_URL}/api/employee`;
 const Homepage = () => {
   const [employees, setEmployees] = useState([]);
   const [students, setStudents] = useState([]);
@@ -10,9 +13,9 @@ const Homepage = () => {
 // fetch all data
 useEffect(() => {
   const fetchData = async () => {
-    const empData = await GetEmployee();
-    const stuData = await GetStudent();
-    const teaData = await GetTeacher();
+    const empData = await GetEmployee(EMP_URL);
+    const stuData = await GetStudent(STU_URL);
+    const teaData = await GetTeacher(TECH_URL);
     setEmployees(empData);
     setStudents(stuData);
     setTeachers(teaData);

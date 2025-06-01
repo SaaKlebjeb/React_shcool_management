@@ -1,7 +1,7 @@
-const STU_URL = "http://localhost:8082/api/student";
+
 
 //get student
-export const GetStudent=async()=>{
+export const GetStudent=async(STU_URL)=>{
     const res=await fetch(STU_URL);
     const data=await res.json();
     return data.student_lists;

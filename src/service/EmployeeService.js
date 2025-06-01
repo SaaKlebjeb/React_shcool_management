@@ -1,7 +1,7 @@
-const EMP_URL = "http://localhost:8082/api/employee";
+
 
 //get employee
-export const GetEmployee=async()=>{
+export const GetEmployee=async(EMP_URL)=>{
     const res=await fetch(EMP_URL);
     const data=await res.json();
     return data.employee_lists;
