@@ -85,7 +85,21 @@ const EmployeeModal = ({ onAdd, onEdit, editingData, isEdit }) => {
       // You might want to show an error message to the user here
     }
   };
-  
+  //reset
+  const handleReset=()=>{
+    setFormData({
+        firstname: "",
+        lastname: "",
+        gender: "",
+        dob: "",
+        tel: "",
+        email: "",
+        salary: "",
+        address: "",
+        province: "",
+        country: ""
+      });
+  }
   
   return (
     <div>
@@ -212,7 +226,10 @@ const EmployeeModal = ({ onAdd, onEdit, editingData, isEdit }) => {
               <button type="submit" className="btn btn-primary">
                 {isEdit?'UPDATE':'ADD'}
               </button>
-              <button  type="reset" className="btn btn-warning">
+              <button  
+                onClick={handleReset}
+                type="reset" 
+                className="btn btn-warning">
                 Reset
               </button>
               <button
