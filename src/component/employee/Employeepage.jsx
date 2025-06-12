@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import EmployeeModal from "../modal/EmployeeModal";
 import { GetEmployee,DeleteEmployee } from "../../service/EmployeeService";
-const EMP_URL = `${import.meta.env.VITE_API_URL}/api/employee`;
+const EMP_URL = `${import.meta.env.VITE_EMP_URL}`;
 const Employeepage = () => {
   const [Employee, setEmployee] = useState([]);
   const [editingData, setEditingData] = useState(null);

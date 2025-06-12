@@ -1,8 +1,8 @@
 
-
+const EMP_URL = `${import.meta.env.VITE_EMP_URL}`;
 //get employee
-export const GetEmployee=async(EMP_URL)=>{
-    const res=await fetch(EMP_URL);
+export const GetEmployee=async(emp_url)=>{
+    const res=await fetch(emp_url);
     const data=await res.json();
     return data.employee_lists;
 }

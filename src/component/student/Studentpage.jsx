@@ -1,7 +1,7 @@
 import { useState,useEffect } from "react"
 import StudentModal from "../modal/StudentModal"
 import { DeleteStudent, GetStudent } from "../../service/StudentService";
-const STU_URL = `${import.meta.env.VITE_API_URL}/api/student`;
+const STU_URL = `${import.meta.env.VITE_STU_URL}`;
 const Studentpage = () => {
     const [Student,setStudent]=useState([])
     const [editingData, setEditingData] = useState(null);

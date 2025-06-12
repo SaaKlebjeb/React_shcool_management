@@ -1,7 +1,7 @@
-
+const TECH_URL = `${import.meta.env.VITE_TECH_URL}`;
 //get Teacher
-export const GetTeacher=async(TECH_URL)=>{
-    const res=await fetch(TECH_URL);
+export const GetTeacher=async(tech_url)=>{
+    const res=await fetch(tech_url);
     const data=await res.json();
     return data.teacher_lists;
 }

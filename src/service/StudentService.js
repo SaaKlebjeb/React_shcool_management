@@ -1,8 +1,11 @@
 
-
+const STU_URL = `${import.meta.env.VITE_STU_URL}`;
 //get student
-export const GetStudent=async(STU_URL)=>{
-    const res=await fetch(STU_URL);
+export const GetStudent=async(stu_url)=>{
+    const res=await fetch(stu_url);
+    if (!res.ok) {
+        throw new Error("Failed to fetch student data");
+    }
     const data=await res.json();
     return data.student_lists;
 }
