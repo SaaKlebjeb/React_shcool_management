@@ -28,7 +28,7 @@ const StudentModal = ({ onAdd, onEdit, editingData, isEdit }) => {
           lastname: editingData.lastname,
           gender: editingData.gender,
           dob: editingData.dob,
-          tel: editingData.tel,
+          tel: editingData.telephone,
           email: editingData.email,// salary in database is base_salary
           address: editingData.address,
           province: editingData.province,
@@ -57,7 +57,7 @@ const StudentModal = ({ onAdd, onEdit, editingData, isEdit }) => {
         lastname: formData.lastname,
         gender: formData.gender,
         dob: formData.dob,
-        tel: formData.tel,
+        telephone: formData.tel,
         email: formData.email,
         address: formData.address,
         province: formData.province,
@@ -66,7 +66,7 @@ const StudentModal = ({ onAdd, onEdit, editingData, isEdit }) => {
     
       try {
         if (isEdit) {
-          const res=await UpdateStudent(editingData.student_id, studentData);
+          const res=await UpdateStudent(editingData.studentID, studentData);
           console.log('Update response:', res);
           onEdit(); // This will trigger the parent to refresh the list
         } else {
@@ -127,16 +127,16 @@ const StudentModal = ({ onAdd, onEdit, editingData, isEdit }) => {
             <div className="grid grid-cols-2 gap-4">
               <select
                 name="gender"
-                value={Number(formData.gender)}
+                value={formData.gender}
                onChange={handleChange}
                 className="select select-bordered w-full"
                 required
               >
-                <option disabled>
+                <option value='' disabled>
                   Select Gender
                 </option>
-                <option value={1}>Male</option>
-                <option value={0}>Female</option>
+                <option value='Male'>Male</option>
+                <option value='Female'>Female</option>
               </select>
 
               <input
@@ -152,7 +152,7 @@ const StudentModal = ({ onAdd, onEdit, editingData, isEdit }) => {
             {/* Telephone + Email */}
             <div className="grid grid-cols-2 gap-4">
               <input
-                type="tel"
+                type="text"
                 name="tel"
                 value={formData.tel}
                 onChange={handleChange}
@@ -205,7 +205,8 @@ const StudentModal = ({ onAdd, onEdit, editingData, isEdit }) => {
 
             {/* Buttons */}
             <div className="modal-action flex justify-between mt-4">
-              <button type="submit" className="btn btn-primary">
+              <button
+                type="submit" className="btn btn-primary">
                 {isEdit?'UPDATE':'ADD'}
               </button>
               <button 
@@ -215,7 +216,7 @@ const StudentModal = ({ onAdd, onEdit, editingData, isEdit }) => {
                 Reset
               </button>
               <button
-                type="submit"
+                type="button"
                 className="btn"
                 onClick={() => document.getElementById("my_modal_1").close()}
               >

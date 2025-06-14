@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from "react";
+import {useState,useEffect} from "react";
 import { UpdateEmployee,AddEmployee } from "../../service/EmployeeService";
 
 const EmployeeModal = ({ onAdd, onEdit, editingData, isEdit }) => {
@@ -30,9 +30,9 @@ const EmployeeModal = ({ onAdd, onEdit, editingData, isEdit }) => {
         lastname: editingData.lastname,
         gender: editingData.gender,
         dob: editingData.dob,
-        tel: editingData.tel,
+        tel: editingData.telephone,
         email: editingData.email,
-        salary: editingData.base_salary, // salary in database is base_salary
+        salary: editingData.salary, // salary in database is base_salary
         address: editingData.address,
         province: editingData.province,
         country: editingData.country
@@ -61,9 +61,9 @@ const EmployeeModal = ({ onAdd, onEdit, editingData, isEdit }) => {
       lastname: formData.lastname,
       gender: formData.gender,
       dob: formData.dob,
-      tel: formData.tel,
+      telephone: formData.tel,
       email: formData.email,
-      base_salary: formData.salary,
+      salary: formData.salary,
       address: formData.address,
       province: formData.province,
       country: formData.country
@@ -71,7 +71,7 @@ const EmployeeModal = ({ onAdd, onEdit, editingData, isEdit }) => {
   
     try {
       if (isEdit) {
-        const res=await UpdateEmployee(editingData.employee_id, employeeData);
+        const res=await UpdateEmployee(editingData.employeeID, employeeData);
         console.log('Update response:', res);
         onEdit(); // This will trigger the parent to refresh the list
       } else {
@@ -134,16 +134,16 @@ const EmployeeModal = ({ onAdd, onEdit, editingData, isEdit }) => {
             <div className="grid grid-cols-2 gap-4">
               <select
                 name="gender"
-                value={Number(formData.gender)}
+                value={formData.gender}
                onChange={handleChange}
                 className="select select-bordered w-full"
                 required
               >
-                <option disabled>
+                <option value='' disabled>
                   Select Gender
                 </option>
-                <option value={1}>Male</option>
-                <option value={0}>Female</option>
+                <option value='Male'>Male</option>
+                <option value='Female'>Female</option>
               </select>
 
               <input
@@ -159,7 +159,7 @@ const EmployeeModal = ({ onAdd, onEdit, editingData, isEdit }) => {
             {/* Telephone + Email */}
             <div className="grid grid-cols-2 gap-4">
               <input
-                type="tel"
+                type="text"
                 name="tel"
                 value={formData.tel}
                 onChange={handleChange}
@@ -182,7 +182,8 @@ const EmployeeModal = ({ onAdd, onEdit, editingData, isEdit }) => {
             <input
               type="number"
               name="salary"
-              value={formData.base_salary}
+              min="0"
+              value={formData.salary}
               onChange={handleChange}
               placeholder="Salary"
               className="input input-bordered w-full"
@@ -233,7 +234,7 @@ const EmployeeModal = ({ onAdd, onEdit, editingData, isEdit }) => {
                 Reset
               </button>
               <button
-                type="submit"
+                type="button"
                 className="btn"
                 onClick={() => document.getElementById("my_modal_1").close()}
               >
