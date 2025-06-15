@@ -12,21 +12,28 @@ const Homepage = () => {
   const [teachers, setTeachers] = useState([]);
 // fetch all data
 useEffect(() => {
-  const fetchData = async () => {
-    const empData = await GetEmployee();
-    const stuData = await GetStudent();
-    const teaData = await GetTeacher();
-    setEmployees(empData);
-    setStudents(stuData);
-    setTeachers(teaData);
+   const fetchData = async () => {
+    try {
+      const empData = await GetEmployee();
+      const stuData = await GetStudent();
+      const teaData = await GetTeacher();
+      setEmployees(empData || []);
+      setStudents(stuData || []);
+      setTeachers(teaData || []);
+      console.log("Employees:", empData);
+      console.log("Students:", stuData);
+      console.log("Teachers:", teaData);
+    } catch (err) {
+      console.error("Error fetching data:", err);
+    }
   };
-  fetchData()
+  fetchData();
 }, []);
 
 
 
   // Prepare data (e.g., employee count by province)
-  const getProvinceStats = (data) =>
+  const getProvinceStats = (data = []) =>
     data.reduce((acc, item) => {
       acc[item.province] = (acc[item.province] || 0) + 1;
       return acc;
