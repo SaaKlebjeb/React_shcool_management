@@ -2,8 +2,14 @@ const TECH_URL = `${import.meta.env.VITE_TECH_URL}`;
 //get Teacher
 export const GetTeacher=async()=>{
     const res=await fetch(TECH_URL);
-    const data=await res.json();
-    return data.teacher_lists;
+    if (res.ok) {
+    const data = await res.json(); // ✅ only parse if it's OK
+    console.log(data);
+     return data.teacher_lists;
+  } else {
+    const errorText = await res.text(); // fallback
+    console.error("Request failed:", errorText);
+  }
 }
 //add Teacher
 export const AddTeacher=async(teacherData)=>{
@@ -14,8 +20,14 @@ export const AddTeacher=async(teacherData)=>{
         },
         body:JSON.stringify(teacherData)
     })
-    const data=await res.json();
-    return data.teacher_lists;
+    if (res.ok) {
+    const data = await res.json(); // ✅ only parse if it's OK
+    console.log(data);
+     return data.teacher_lists;
+  } else {
+    const errorText = await res.text(); // fallback
+    console.error("Request failed:", errorText);
+  }
 }
 //update Teacher
 export const UpdateTeacher = async (teacherId, teacherData) => {
@@ -26,14 +38,26 @@ export const UpdateTeacher = async (teacherId, teacherData) => {
       },
       body: JSON.stringify(teacherData),
     });
-    const data=await res.json();
-    return data.teacher_lists;
+       if (res.ok) {
+    const data = await res.json(); // ✅ only parse if it's OK
+    console.log(data);
+     return data.teacher_lists;
+  } else {
+    const errorText = await res.text(); // fallback
+    console.error("Request failed:", errorText);
+  }
   };
   //delete Teacher
   export const DeleteTeacher = async (teacherId) => {
     const res = await fetch(`${TECH_URL}/${teacherId}`, {
       method: "DELETE",
     });
-    const data=await res.json();
-    return data.teacher_lists;
+    if (res.ok) {
+    const data = await res.json(); // ✅ only parse if it's OK
+    console.log(data);
+     return data.teacher_lists;
+  } else {
+    const errorText = await res.text(); // fallback
+    console.error("Request failed:", errorText);
+  }
   };
